@@ -1,0 +1,25 @@
+const express = require('express')
+var router = express.Router();
+const mongoose = require('mongoose');
+const Employee = mongoose.model('Employee');
+
+
+router.get('/', (req, res) => {
+    res.render('employee/addOrEdit', {
+        viewTitle: 'Insert Employee'
+    });
+});
+
+router.post('/', (req, res) => {
+    insertRecord(req, res);
+    console.log(req.body);
+});
+
+function insertRecord(req, res) {
+    var employee = new Employee();
+    employee.fullname = req.body.fullName;
+
+}
+
+
+module.exports = router;
