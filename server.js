@@ -8,6 +8,9 @@ const bodyparser = require('body-parser');
 const employeeController = require('./controllers/employeeController');
 
 var app = express();
+
+require('./controllers/auth.js')(app);
+
 app.use(bodyparser.urlencoded({
     extended: true
 }));
@@ -19,6 +22,8 @@ app.engine('hbs', exphbs({
     layoutsDir: __dirname + '/views/layouts/'
 }));
 app.set('view engine', 'hbs');
+
+app.get("/", (req, res) => res.render("sign-up"));
 
 app.listen(3000, () => {
     console.log('Express server started at port : 3000');
