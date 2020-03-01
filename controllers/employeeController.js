@@ -4,8 +4,10 @@ const mongoose = require('mongoose');
 const Employee = mongoose.model('Employee');
 
 router.get('/', (req, res) => {
+    var currentUser = req.user;
     res.render("employee/addOrEdit", {
-        viewTitle: "Insert Employee"
+        viewTitle: "Insert Employee",
+        currentUser
     });
 });
 
@@ -62,10 +64,12 @@ function updateRecord(req, res) {
 
 
 router.get('/list', (req, res) => {
+    var currentUser = req.user;
     Employee.find((err, docs) => {
         if (!err) {
             res.render("employee/list", {
-                list: docs
+                list: docs,
+                currentUser
             });
         } else {
             console.log('Error in retrieving employee list :' + err);
