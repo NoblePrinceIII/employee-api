@@ -3,8 +3,10 @@ var router = express.Router();
 const mongoose = require('mongoose');
 const Employee = mongoose.model('Employee');
 
+
 router.get('/', (req, res) => {
     var currentUser = req.user;
+    console.log(currentUser);
     res.render("employee/addOrEdit", {
         viewTitle: "Insert Employee",
         currentUser

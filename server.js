@@ -52,8 +52,6 @@ var checkAuth = (req, res, next) => {
 app.use(checkAuth);
 
 
-
-
 app.get("/", (req, res) => res.render("sign-up"));
 
 require("./controllers/auth.js")(app);
@@ -63,5 +61,5 @@ app.listen(3000, () => {
 });
 
 
-app.use("/employee", employeeController);
+
 module.exports = app;
