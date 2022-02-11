@@ -17,7 +17,7 @@
     "docsify-cli": "^4.4.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "express-handlebars": "^3.1.0",
+    "express-handlebars": "^5.3.1",
     "g": "^2.0.1",
     "install": "^0.13.0",
     "jsonwebtoken": "^8.5.1",
